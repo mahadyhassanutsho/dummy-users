@@ -1,5 +1,10 @@
 import { useLoaderData } from "react-router";
 
+import ProductRequestForm from "../Products/ProductRequestForm";
+import ProductRequestList from "../Products/ProductRequestList";
+
+import ProductRequestProvider from "../../contexts/ProductContextProvider";
+
 export default function UserDetail() {
   const user = useLoaderData();
 
@@ -104,6 +109,12 @@ export default function UserDetail() {
           </a>
         </div>
       </section>
+
+      <ProductRequestProvider>
+        <ProductRequestList />
+
+        <ProductRequestForm />
+      </ProductRequestProvider>
     </div>
   );
 }

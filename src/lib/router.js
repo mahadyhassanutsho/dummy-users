@@ -5,6 +5,7 @@ import Home from "../components/Home/Home.jsx";
 import About from "../components/About/About.jsx";
 import Users from "../components/Users/Users.jsx";
 import UserDetail from "../components/Users/UserDetail.jsx";
+import { fetchUserById, fetchUsers } from "./fetchers.js";
 
 const router = createBrowserRouter([
   {
@@ -17,14 +18,13 @@ const router = createBrowserRouter([
         name: "Users",
         loader: () => {
           setTimeout(() => {}, 5000);
-          return fetch("https://jsonplaceholder.typicode.com/users");
+          return fetchUsers();
         },
         Component: Users,
       },
       {
         path: "users/:id",
-        loader: ({ params }) =>
-          fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`),
+        loader: ({ params }) => fetchUserById(params.id),
         Component: UserDetail,
       },
       { path: "about", name: "About", Component: About },
