@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import { routes } from "../lib/router.js";
 
 import Container from "./Common/Container";
+import Loader from "./Common/Loader.jsx";
 
 export default function Header() {
   return (
@@ -26,7 +27,18 @@ export default function Header() {
                     }`
                       }
                     >
-                      {route.name}
+                      <span>{route.name}</span>
+
+                      {/* {({ isPending }) =>
+                        isPending ? (
+                          <div className="flex items-center justify-center gap-2 h-fit">
+                            <span>{route.name}</span>
+                            <Loader size="sm" position="start" />
+                          </div>
+                        ) : (
+                          <span>{route.name}</span>
+                        )
+                      } */}
                     </NavLink>
                   </li>
                 )

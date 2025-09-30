@@ -12,7 +12,7 @@ export default function Loader({ size = "md", position = "center" }) {
   };
 
   return (
-    <div className={`flex w-full ${justifyMap[position]} p-4`}>
+    <div className={`flex w-full ${justifyMap[position]}`}>
       <div
         className={`animate-spin rounded-full border-t-transparent border-indigo-500 ${sizeMap[size]}`}
       ></div>
